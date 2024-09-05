@@ -9,26 +9,26 @@ export class CategoriesRepository {
 
   }
 
-  create(createCategoryDto: CreateCategoryDto) {
-    return this.Prisma.category.create({
+  async create(createCategoryDto: CreateCategoryDto) {
+    return await this.Prisma.category.create({
       data:createCategoryDto
     });
   }
 
-  findAll() {
-    return this.Prisma.category.findMany();
+  async findAll() {
+    return await this.Prisma.category.findMany();
   }
 
-  findOne(id: number) {
-    return this.Prisma.category.findUnique({
+  async findOne(id: number) {
+    return await this.Prisma.category.findUnique({
       where: {
         id: id
       }
     });
   }
 
-  update(id: number, updateCategoryDto: UpdateCategoryDto) {
-    return this.Prisma.category.update({
+  async update(id: number, updateCategoryDto: UpdateCategoryDto) {
+    return await this.Prisma.category.update({
       where: {
         id: id
       },
@@ -36,8 +36,8 @@ export class CategoriesRepository {
     });
   }
 
-  delete(id: number) {
-    return this.Prisma.category.delete({
+  async delete(id: number) {
+    return await this.Prisma.category.delete({
       where: {
         id: id
       }
