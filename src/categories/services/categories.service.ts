@@ -5,26 +5,26 @@ import { CategoriesRepository } from '../repository/categories.repository';
 
 @Injectable()
 export class CategoriesService {
-  constructor(private readonly repository: CategoriesRepository ){
+  constructor(private readonly repository: CategoriesRepository){
   }
 
-  create(createCategoryDto: CreateCategoryDto) {
-    return this.repository.create(createCategoryDto);
+  async create(createCategoryDto: CreateCategoryDto) {
+    return await this.repository.create(createCategoryDto);
   }
 
-  findAll() {
-    return this.repository.findAll();
+  async findAll() {
+    return await this.repository.findAll();
   }
 
-  findOne(id: number) {
-    return this.repository.findOne(id);
+  async findOne(id: number) {
+    return await this.repository.findOne(id);
   }
 
-  update(id: number, updateCategoryDto: UpdateCategoryDto) {
-    return this.repository.update(id, updateCategoryDto);
+  async update(id: number, updateCategoryDto: UpdateCategoryDto) {
+    return await this.repository.update(id, updateCategoryDto);
   }
 
-  remove(id: number) {
-    return this.repository.delete(id);
+  async remove(id: number) {
+    return await this.repository.delete(id);
   }
 }

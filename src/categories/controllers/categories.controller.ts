@@ -9,31 +9,31 @@ export class CategoriesController {
 
   @HttpCode(201)
   @Post()
-  create(@Body() createCategoryDto: CreateCategoryDto) {
-    return this.categoriesService.create(createCategoryDto);
+  async create(@Body() createCategoryDto: CreateCategoryDto) {
+    return await this.categoriesService.create(createCategoryDto);
   }
 
   @HttpCode(200)
   @Get()
-  findAll() {
-    return this.categoriesService.findAll();
+  async findAll() {
+    return await this.categoriesService.findAll();
   }
 
   @HttpCode(200)
   @Get(':id')
-  findOne(@Param('id', new ParseIntPipe()) id: number) {
-    return this.categoriesService.findOne(id);
+  async findOne(@Param('id', new ParseIntPipe()) id: number) {
+    return await this.categoriesService.findOne(id);
   }
 
   @HttpCode(200)
   @Patch(':id')
-  update(@Param('id', new ParseIntPipe()) id: number, @Body() updateCategoryDto: UpdateCategoryDto) {
-    return this.categoriesService.update(id, updateCategoryDto);
+  async update(@Param('id', new ParseIntPipe()) id: number, @Body() updateCategoryDto: UpdateCategoryDto) {
+    return await this.categoriesService.update(id, updateCategoryDto);
   }
 
   @HttpCode(204)
   @Delete(':id')
-  remove(@Param('id', new ParseIntPipe()) id: number) {
-    return this.categoriesService.remove(id);
+  async remove(@Param('id', new ParseIntPipe()) id: number) {
+    return await this.categoriesService.remove(id);
   }
 }
